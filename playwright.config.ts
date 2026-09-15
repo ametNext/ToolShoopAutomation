@@ -1,11 +1,6 @@
 import { defineConfig, devices, selectors } from '@playwright/test';
-import dotenv from 'dotenv';
-import path from 'path';
 
 selectors.setTestIdAttribute('data-test');
-
-// Optional: Load environment-specific .env file
-dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 const ci = Boolean(
   (globalThis as { process?: { env?: { CI?: string } } }).process?.env?.CI,
@@ -38,7 +33,9 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
-    baseURL: process.env.BASE_URL || 'https://practicesoftwaretesting.com',
+    baseURL:
+      (globalThis as { process?: { env?: { BASE_URL?: string } } }).process?.env
+        ?.BASE_URL || 'https://practicesoftwaretesting.com',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
