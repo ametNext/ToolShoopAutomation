@@ -1,0 +1,18 @@
+{
+  "admin": {
+    "username": "admin@practicesoftwaretesting.com",
+    "password": "welcome01"
+  },
+  "user1": {
+    "username": "",
+    "password": ""
+  },
+   "user2": {
+    "username": "",
+    "password": ""
+  },
+   "user3": {
+    "username": "",
+    "password": ""
+  }
+}
